@@ -27,4 +27,15 @@ public class UserRegistrationValidation {
         System.out.println("Invalid, Last Name should Start with UpperCase letter and has minimum 3 characters");
         return "Invalid";
     }
+
+    public String validateEmail(String email) {
+        Pattern pattern = Pattern.compile("^((([a-z]{3})|([a-z]{3}[.][a-z]{3}))[@][bl]{2}[.]([co]{2}|[co]{2}[.][in]{2}))$");
+        Matcher matcher = pattern.matcher(email);
+        boolean result = matcher.find();
+        if(result) {
+            System.out.println("Email is Valid");
+            return "Valid";
+        }
+        return "Invalid";
+    }
 }

@@ -19,4 +19,11 @@ public class UserRegistrationValidationTest {
         String result = userRegistrationValidation.validateLastName(usrLastName);
         assertEquals("Valid", result);
     }
+
+    @Test
+    public void whenGivenEmail_shouldCheckValidOrInvalid() {
+        String usrEmail = "abc.xyz@bl.co.in";
+        String result = userRegistrationValidation.validateEmail(usrEmail);
+        assertEquals("Valid", result);
+    }
 }
