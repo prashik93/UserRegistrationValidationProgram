@@ -51,7 +51,7 @@ public class UserRegistrationValidation {
     }
 
     public String validatePassword(String password) {
-        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]){8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=[^!@#$%^&*]*[!@#$%^&*]([^!@#$%^&*])*$)([a-zA-Z0-9(!@#$%^&*)]){8,}$");
         Matcher matcher = pattern.matcher(password);
         boolean result = matcher.find();
         if(result) {
@@ -61,7 +61,8 @@ public class UserRegistrationValidation {
         System.out.print("""
                           \nPassword should contain minimum 8 characters.
                           Password should contain at least One UpperCase Letter.
-                          Password should contain at least One Numeric Number""");
+                          Password should contain at least One Numeric Number.
+                          Password should contain exactly One Special Character.""");
         return "Invalid";
     }
 }
