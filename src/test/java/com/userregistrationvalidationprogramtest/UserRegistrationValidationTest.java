@@ -33,4 +33,11 @@ public class UserRegistrationValidationTest {
         String result = userRegistrationValidation.validateMobileFormat(usrMobileNumber);
         assertEquals("Valid", result);
     }
+
+    @Test
+    public void whenGivenPassword_shouldCheckItContainsMinimumEightCharacters() {
+        String usrPassword = "abcdefgh";
+        String result = userRegistrationValidation.validatePassword(usrPassword);
+        assertEquals("Valid", result);
+    }
 }
