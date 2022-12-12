@@ -38,4 +38,15 @@ public class UserRegistrationValidation {
         }
         return "Invalid";
     }
+
+    public String validateMobileFormat(String mobileNumber) {
+        Pattern pattern = Pattern.compile("^[0-9]{2}[\\s][0-9]{10}$");
+        Matcher matcher = pattern.matcher(mobileNumber);
+        boolean result = matcher.find();
+        if(result) {
+            System.out.println("Mobile Format is Valid");
+            return "Valid";
+        }
+        return "Invalid";
+    }
 }

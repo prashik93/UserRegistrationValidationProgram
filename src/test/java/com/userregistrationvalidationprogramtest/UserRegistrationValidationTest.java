@@ -26,4 +26,11 @@ public class UserRegistrationValidationTest {
         String result = userRegistrationValidation.validateEmail(usrEmail);
         assertEquals("Valid", result);
     }
+
+    @Test
+    public void whenGivenMobileNumber_shouldCheckValidOrInvalid() {
+        String usrMobileNumber = "91 9919819801";
+        String result = userRegistrationValidation.validateMobileFormat(usrMobileNumber);
+        assertEquals("Valid", result);
+    }
 }
