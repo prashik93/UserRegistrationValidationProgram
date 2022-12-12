@@ -36,7 +36,14 @@ public class UserRegistrationValidationTest {
 
     @Test
     public void whenGivenPassword_shouldCheckItContainsMinimumEightCharacters() {
-        String usrPassword = "abcdefgh";
+        String usrPassword = "abCdefgh";
+        String result = userRegistrationValidation.validatePassword(usrPassword);
+        assertEquals("Valid", result);
+    }
+
+    @Test
+    public void whenGivenPassword_shouldCheckItContainsAtLeastOneUpperCaseLetter() {
+        String usrPassword = "abCDefgh";
         String result = userRegistrationValidation.validatePassword(usrPassword);
         assertEquals("Valid", result);
     }

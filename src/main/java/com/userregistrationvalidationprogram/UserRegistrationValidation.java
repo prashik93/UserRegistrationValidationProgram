@@ -51,14 +51,14 @@ public class UserRegistrationValidation {
     }
 
     public String validatePassword(String password) {
-        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])([a-zA-Z]){8,}$");
         Matcher matcher = pattern.matcher(password);
         boolean result = matcher.find();
         if(result) {
             System.out.println("Password is Valid");
             return "Valid";
         }
-        System.out.println("\nPassword should contain minimum 8 characters.");
+        System.out.println("\nPassword should contain minimum 8 characters\nPassword should contain at least One UpperCase letter.");
         return "Invalid";
     }
 }
