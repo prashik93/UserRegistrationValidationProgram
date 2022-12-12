@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistrationValidation {
+
     public String validateFirstName(String firstName) {
         Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}");
         Matcher matcher = pattern.matcher(firstName);
@@ -63,6 +64,17 @@ public class UserRegistrationValidation {
                           Password should contain at least One UpperCase Letter.
                           Password should contain at least One Numeric Number.
                           Password should contain exactly One Special Character.""");
+        return "Invalid";
+    }
+
+    public static String validateAllEmailSamples(String email) {
+        Pattern pattern = Pattern.compile("^([a-z 0-9]{3,}|[a-z 0-9]{3,}[-|+|-|.][a-z 0-9]{1,})[@][a-z 0-9]{1,}[.]([com|net|co]{2,3}|[com|net|co]{2,3}[.][au|in|com]{2,3})$");
+        Matcher matcher = pattern.matcher(email);
+        boolean result = matcher.find();
+        if(result) {
+            System.out.println("Email is Valid");
+            return "Valid";
+        }
         return "Invalid";
     }
 }
