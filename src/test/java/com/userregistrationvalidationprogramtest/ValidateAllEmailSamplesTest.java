@@ -32,11 +32,11 @@ public class ValidateAllEmailSamplesTest {
         return Arrays.asList(new Object[][]{ {"abc@yahoo.com", "Valid"}, {"abc-100@yahoo.com", "Valid"}, {"abc.100@yahoo.com", "Valid"},
                                              {"abc111@abc.com", "Valid"}, {"abc-100@abc.net", "Valid"}, {"abc.100@abc.com.au", "Valid"},
                                              {"abc@1.com", "Valid"}, {"abc@gmail.com.com", "Valid"}, {"abc+100@gmail.com", "Valid"},
-                                             {"abc", "Invalid"}, {"abc@.com.my", "Invalid"}, {"abc123@gmail.a", "Invalid"},
-                                             {"abc123@.com", "Invalid"}, {"abc123@.com.com", "Invalid"}, {".abc@abc.com", "Invalid"},
-                                             {"abc()*@gmail.com", "Invalid"}, {"abc@%*.com", "Invalid"}, {"abc..2002@gmail.com", "Invalid"},
-                                             {"abc.@gmail.com", "Invalid"}, {"abc@abc@gmail.com", "Invalid"}, {"abc@gmail.com.1a", "Invalid"},
-                                             {"abc@gmail.com.aa.au", "Invalid"} });
+                                             {"abc", "Email is Invalid"}, {"abc@.com.my", "Email is Invalid"}, {"abc123@gmail.a", "Email is Invalid"},
+                                             {"abc123@.com", "Email is Invalid"}, {"abc123@.com.com", "Email is Invalid"}, {".abc@abc.com", "Email is Invalid"},
+                                             {"abc()*@gmail.com", "Email is Invalid"}, {"abc@%*.com", "Email is Invalid"}, {"abc..2002@gmail.com", "Email is Invalid"},
+                                             {"abc.@gmail.com", "Email is Invalid"}, {"abc@abc@gmail.com", "Email is Invalid"}, {"abc@gmail.com.1a", "Email is Invalid"},
+                                             {"abc@gmail.com.aa.au", "Email is Invalid"} });
     }
 
     @Test
