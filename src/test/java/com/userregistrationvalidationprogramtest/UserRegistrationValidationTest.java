@@ -1,100 +1,109 @@
 package com.userregistrationvalidationprogramtest;
 
 import com.userregistrationvalidationprogram.UserRegistrationValidation;
+import com.userregistrationvalidationprogram.custom.MyUserRegistrationException;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
 public class UserRegistrationValidationTest {
     UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
 
     @Test
-    public void whenGivenFirstName_shouldCheckValid() {
+    public void whenGivenFirstName_ShouldCheckValid() {
         String usrFirstName = "Prashik";
-        String result = userRegistrationValidation.validateFirstName(usrFirstName);
-        assertEquals("Valid", result);
+        try {
+            userRegistrationValidation.validateFirstName(usrFirstName);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenFirstName_shouldCheckInvalid() {
+    public void whenGivenFirstName_ShouldCheckInvalid() {
         String usrFirstName = "rashik";
-        String result = userRegistrationValidation.validateFirstName(usrFirstName);
-        assertEquals("FirstName is Invalid", result);
+        try {
+            userRegistrationValidation.validateFirstName(usrFirstName);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenLastName_shouldCheckValid() {
+    public void whenGivenLastName_ShouldCheckValid() {
         String usrLastName = "Kamble";
-        String result = userRegistrationValidation.validateLastName(usrLastName);
-        assertEquals("Valid", result);
+        try {
+            userRegistrationValidation.validateLastName(usrLastName);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenLastName_shouldCheckInvalid() {
+    public void whenGivenLastName_ShouldCheckInvalid() {
         String usrLastName = "amble";
-        String result = userRegistrationValidation.validateLastName(usrLastName);
-        assertEquals("LastName is Invalid", result);
+        try {
+            userRegistrationValidation.validateLastName(usrLastName);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenEmail_shouldCheckValid() {
+    public void whenGivenEmail_ShouldCheckValid() {
         String usrEmail = "abc.xyz@bl.co.in";
-        String result = userRegistrationValidation.validateEmail(usrEmail);
-        assertEquals("Valid", result);
+        try {
+            userRegistrationValidation.validateEmail(usrEmail);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenEmail_shouldCheckInvalid() {
+    public void whenGivenEmail_ShouldCheckInvalid() {
         String usrEmail = "abc.xyzbl.co.in";
-        String result = userRegistrationValidation.validateEmail(usrEmail);
-        assertEquals("Email is Invalid", result);
+        try {
+            userRegistrationValidation.validateEmail(usrEmail);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenMobileNumber_shouldCheckValid() {
+    public void whenGivenMobileNumber_ShouldCheckValid() {
         String usrMobileNumber = "91 9919819801";
-        String result = userRegistrationValidation.validateMobileFormat(usrMobileNumber);
-        assertEquals("Valid", result);
+        try {
+            userRegistrationValidation.validateMobileFormat(usrMobileNumber);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenMobileNumber_shouldCheckInvalid() {
+    public void whenGivenMobileNumber_ShouldCheckInvalid() {
         String usrMobileNumber = "91 991981";
-        String result = userRegistrationValidation.validateMobileFormat(usrMobileNumber);
-        assertEquals("MobileNumber is Invalid", result);
+        try{
+            userRegistrationValidation.validateMobileFormat(usrMobileNumber);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenPassword_shouldCheckItContainsMinimumEightCharacters() {
-        String usrPassword = "a1C!efgh";
-        String result = userRegistrationValidation.validatePassword(usrPassword);
-        assertEquals("Valid", result);
-    }
-
-    @Test
-    public void whenGivenPassword_shouldCheckItContainsAtLeastOneUpperCaseLetter() {
-        String usrPassword = "abCD@3gh";
-        String result = userRegistrationValidation.validatePassword(usrPassword);
-        assertEquals("Valid", result);
-    }
-
-    @Test
-    public void whenGivenPassword_shouldCheckItContainsAtLeastOneNumericNumber() {
-        String usrPassword = "a1CD#4gh";
-        String result = userRegistrationValidation.validatePassword(usrPassword);
-        assertEquals("Valid", result);
-    }
-
-    @Test
-    public void whenGivenPassword_shouldCheckItContainsExactlyOneSpecialCharacter() {
+    public void whenGivenPassword_ShouldCheckValid() {
         String usrPassword = "a1CDe4$h";
-        String result = userRegistrationValidation.validatePassword(usrPassword);
-        assertEquals("Valid", result);
+        try {
+            userRegistrationValidation.validatePassword(usrPassword);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void whenGivenPassword_shouldCheckItContainsExactlyOneSpecialCharacter_ReturnEmailIsInvalid() {
+    public void whenGivenPassword_ShouldCheckInvalid() {
         String usrPassword = "a1$h";
-        String result = userRegistrationValidation.validatePassword(usrPassword);
-        assertEquals("Password is Invalid", result);
+        try {
+           userRegistrationValidation.validatePassword(usrPassword);
+        } catch (MyUserRegistrationException e) {
+            e.printStackTrace();
+        }
     }
 }
